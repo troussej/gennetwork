@@ -1,0 +1,20 @@
+{
+  "name": "gennetwork",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start":"tsc && node dist/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/lodash": "^4.17.18",
+    "lodash": "^4.17.21",
+    "tsc": "^2.0.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
