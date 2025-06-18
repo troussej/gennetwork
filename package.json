@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"tsc && node dist/app.js",
+    "start": "tsc && node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -15,6 +15,7 @@
     "tsc": "^2.0.4"
   },
   "devDependencies": {
+    "cytoscape": "^3.32.0",
     "typescript": "^5.8.3"
   }
 }
