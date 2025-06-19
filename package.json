@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node dist/app.js",
+    "start": "npm run gen &&  sh build.sh",
+    "gen": "npx tsc && node dist/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -15,8 +16,7 @@
     "csv-parser": "^3.2.0",
     "lodash": "^4.17.21",
     "neat-csv": "^7.0.0",
-    "rxjs": "^7.8.2",
-    "tsc": "^2.0.4"
+    "rxjs": "^7.8.2"
   },
   "devDependencies": {
     "@types/node": "^24.0.3",

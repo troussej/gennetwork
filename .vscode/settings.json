@@ -1,0 +1,8 @@
+{
+    "files.exclude": {
+        "**/node_module": true
+    },
+    "files.readonlyExclude": {
+        "dist/**": true
+    }
+}

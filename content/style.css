@@ -1,18 +1,21 @@
 #cy {
-    width: 500px;
-    height: 500px;
-    display: block;
-    border: 1px solid black;
-  }
-  .small{
-    width: 105px;
-    height: 15px;
-  }
-  .medium{
-    width: 30px;
-    height: 30px;
-  }
-  .large{
-    width: 45px;
-    height: 45px;
-  }
+  width: 800px;
+  height: 800px;
+  display: block;
+  border: 1px solid black;
+}
+
+.small {
+  width: 105px;
+  height: 15px;
+}
+
+.medium {
+  width: 30px;
+  height: 30px;
+}
+
+.large {
+  width: 45px;
+  height: 45px;
+}

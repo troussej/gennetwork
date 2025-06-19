@@ -15,7 +15,7 @@ csvReader.read().subscribe({
         const res = mapper.map(network);
 
         fs.writeFile('dist/data.js', `DATA = ${JSON.stringify(res)}`).then(() => {
-            console.log('Data written to dist/data.json');
+            console.log('Data written to dist/data.js');
         });
 
     },
