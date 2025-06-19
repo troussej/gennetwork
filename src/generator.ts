@@ -14,8 +14,9 @@ export class Generator {
             edges: [] as Edge[]
         }
 
+
         _.map(nodes, (node: NodeElem) => {
-            res.edges = _.concat(res.edges, this.generateEdges(node, nodes, cdf));
+            this.generateEdges(node, nodes, cdf, res.edges);
         });
 
 
@@ -23,23 +24,24 @@ export class Generator {
         return res;
     }
 
-    private generateEdges(node: NodeElem, nodes: NodeElem[], cdf: number[]): Edge[] {
-
-        const res: Edge[] = [];
+    private generateEdges(node: NodeElem, nodes: NodeElem[], cdf: number[], edges: Edge[]): void {
 
         _.forIn(_.range(0, node.connectivity), () => {
             var rand = Math.random();
             let index = cdf.findIndex(el => rand <= el);
-            res.push(new Edge(node.id, nodes[index].id, '', 1));
+            let target = nodes[index].id;
+            if (node.id !== target) {
+                // Avoid self-loops
+                edges.push(new Edge(node.id, target, '', 1));
+            }
         });
 
-        return res;
     }
 
     private normalizeConnectivity(nodes: NodeElem[]): NodeElem[] {
-        const maxConnectivity = Math.max(...nodes.map(node => node.connectivity));
+        const totalConnectivitySquare = nodes.reduce((sum, node) => sum + node.connectivity*node.connectivity, 0);
         nodes.forEach(node => {
-            node.normalizedConnectivity = node.connectivity / maxConnectivity;
+            node.normalizedConnectivity = node.connectivity*node.connectivity / totalConnectivitySquare;
         });
         return nodes;
     }

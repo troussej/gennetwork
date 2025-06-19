@@ -1,0 +1,61 @@
+<head>
+  <link href="style.css" rel="stylesheet" />
+<script src="../node_modules/cytoscape/dist/cytoscape.min.js"></script>
+<script src="../dist/data.js"></script>
+<style>
+ 
+</style>
+
+</head>
+<body>
+    <div id="cy"></div>
+
+
+    <script>
+
+var cy = cytoscape({
+
+container: document.getElementById('cy'), // container to render in
+ready: function(){
+            this.nodes().forEach(function(node){
+              console.log(node.id(),node);
+              // console.log(node.id() + " " + node.classes())
+              // let width = [15, 40, 60];
+              // let size = width[Math.floor(Math.random()*3)];
+              // node.css("width", size);
+              // node.css("height", size);
+            });
+         //   this.layout({name: 'cose-bilkent', animationDuration: 1000}).run();
+          },
+elements: DATA,
+style: [ // the stylesheet for the graph
+  {
+    selector: 'node',
+    style: {
+      'background-color': '#666',
+      'label': 'data(id)',
+      // 'node-si'
+    }
+  },
+
+  {
+    selector: 'edge',
+    style: {
+      'width': 3,
+      'line-color': '#ccc',
+      'target-arrow-color': '#ccc',
+      // 'target-arrow-shape': 'triangle',
+      'curve-style': 'straight',
+    }
+  }
+],
+
+layout: {
+  name: 'cose',
+  // rows: 3
+}
+
+});
+
+</script>
+</body>

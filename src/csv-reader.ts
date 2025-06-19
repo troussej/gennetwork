@@ -25,6 +25,7 @@ export class CsvReader {
                         (row: Row) => (new NodeElem(
                             row.name,
                             row.name,
+                            row.major === 'true',
                             _.toNumber(row.connectivity)
                         )));
                 })

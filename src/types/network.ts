@@ -7,6 +7,7 @@ export class NodeElem {
     constructor(
         public id: string,
         public label: string,
+        public major: boolean = false,
         public connectivity = 1,
         public normalizedConnectivity = 1
     ) { }
