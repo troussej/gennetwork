@@ -5,8 +5,6 @@ export class Generator {
 
     public generate(nodes: NodeElem[]): NetworkData {
 
-        nodes = _.filter(nodes, n => n.connectivity > 0);
-
         this.normalizeConnectivity(nodes)
 
         var cdf = nodes.map(elem => elem.normalizedConnectivity).map((sum => value => sum += value)(0));
@@ -37,13 +35,12 @@ export class Generator {
                 edges.push(new Edge(node.id, target, '', 1));
             }
         });
-
     }
 
     private normalizeConnectivity(nodes: NodeElem[]): NodeElem[] {
-        const totalConnectivitySquare = nodes.reduce((sum, node) => sum + node.connectivity * node.connectivity, 0);
+        const totalConnectivitySquare = nodes.reduce((sum, node) => sum + node.connectivity*node.connectivity, 0);
         nodes.forEach(node => {
-            node.normalizedConnectivity = node.connectivity * node.connectivity / totalConnectivitySquare;
+            node.normalizedConnectivity = node.connectivity*node.connectivity / totalConnectivitySquare;
         });
         return nodes;
     }

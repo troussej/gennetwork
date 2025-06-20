@@ -10,12 +10,13 @@ export class CsvReader {
 
     public read(): Observable<NodeElem[]> {
 
-        const path = 'data/nodes.csv';
+        const path = 'src/resources/data/nodes.csv';
 
         return from(fs.readFile(path,{encoding:'utf-8'})).pipe(
             switchMap(this.readNodes.bind(this))
         );
     }
+
 
     private readNodes(csv: string): Observable<NodeElem[]> {
         return from(neatCsv(csv))

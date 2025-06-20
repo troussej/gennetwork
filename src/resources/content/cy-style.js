@@ -2,6 +2,7 @@ var STYLE = [
     {
         "selector": "core",
         "style": {
+          
             "selection-box-color": "#AAD8FF",
             "selection-box-border-color": "#8BB0D0",
             "selection-box-opacity": "0.5"
@@ -21,8 +22,8 @@ var STYLE = [
     {
         "selector": "edge",
         "style": {
-            "curve-style": "haystack",
-            "haystack-radius": "0.5",
+            "curve-style": "straight",
+            // "haystack-radius": "0.5",
             "opacity": "0.8",
             "line-color": "#bbb",
             // "width": "mapData(weight, 0, 1, 1, 8)",

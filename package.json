@@ -4,9 +4,27 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run gen &&  sh build.sh",
-    "gen": "npx tsc && node dist/app.js",
+    "start": "npm run gen &&  npm run assemble",
+    "gen": "npx tsc && node --env-file .env dist/app.js",
+    "assemble":"sh build.sh",
+    "watch": "npm-watch",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "watch":{
+"start": {
+        "patterns": [
+          "src"
+        ],
+        "extensions": "ts,html,css,js",
+        "quiet": false
+      },
+      "assemble": {
+        "patterns": [
+          "src"
+        ],
+        "extensions": "html,css,js",
+        "quiet": false
+      }
   },
   "author": "",
   "license": "ISC",
@@ -19,9 +37,10 @@
     "rxjs": "^7.8.2"
   },
   "devDependencies": {
+    "@tsconfig/node-lts": "latest",
     "@types/node": "^24.0.3",
     "cytoscape": "^3.32.0",
-    "typescript": "^5.8.3",
-    "@tsconfig/node-lts": "latest"
+    "npm-watch": "^0.13.0",
+    "typescript": "^5.8.3"
   }
 }
