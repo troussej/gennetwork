@@ -6,20 +6,36 @@ export class Generator {
     public generate(nodes: NodeElem[]): NetworkData {
 
         nodes = _.filter(nodes, node => node.connectivity > 0);
+    
+        return this.genForEachNode(nodes);
+    }
 
-        const res = {
+    private genForEachNode(nodes: NodeElem[]): NetworkData {
+
+          const res = {
             nodes,
             edges: [] as Edge[]
         }
-
 
         let availableNodes = _.clone(nodes)
         _.map(nodes, (node: NodeElem) => {
             availableNodes = this.generateEdges_withLimit(node, availableNodes, res.edges);
         });
+        return res;
+    }
 
+     private attachNewNodes(nodes: NodeElem[]): NetworkData {
 
+          const res = {
+            nodes: [] as NodeElem[] ,
+            edges: [] as Edge[]
+        }
 
+        let availableNodes = [nodes[0]];
+        nodes = _.slice(nodes,1, nodes.length);
+        _.map(nodes, (node: NodeElem) => {
+            availableNodes = this.generateEdges_attachToExisting(node, availableNodes, res.edges);
+        });
         return res;
     }
 
@@ -71,6 +87,11 @@ export class Generator {
         }
         availableNodes = _.filter(availableNodes, n => n.connexionsCount < n.connectivity);
         return availableNodes;
+    }
+
+    private generateEdges_attachToExisting(node: NodeElem, availableNodes: NodeElem[], edges: Edge[]): NodeElem[] {
+    
+        
     }
 
     private normalizeConnectivity(nodes: NodeElem[]): NodeElem[] {
