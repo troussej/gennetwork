@@ -1,8 +1,8 @@
 
-import { CsvReader } from "./src/csv-reader.js";
-import { Generator } from "./src/generator.js";
-import { Mapper } from "./src/mapper.js";
-import { NodeElem } from "./src/types/network.js";
+import { CsvReader } from "./src/ts/csv-reader.js";
+import { Generator } from "./src/ts/generator.js";
+import { Mapper } from "./src/ts/mapper.js";
+import { NodeElem } from "./src/ts/types/network.js";
 import * as fs from 'node:fs/promises';
 
 const csvReader = new CsvReader();

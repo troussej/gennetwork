@@ -5,24 +5,25 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run gen &&  npm run assemble",
-    "gen": "npx tsc && node --env-file .env dist/app.js",
-    "assemble": "sh build.sh",
+    "build:generator": "npx tsc && node --env-file .env dist/app.js",
+    "build:web": "sh build.sh",
     "watch": "npm-watch",
+    "watch:web": "npm-watch build:web",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "watch": {
-    "start": {
+    "build:generator": {
       "patterns": [
-        "src"
+        "src/ts"
       ],
-      "extensions": "ts,html,css,js",
+      "extensions": "ts",
       "quiet": false
     },
-    "assemble": {
+    "build:web": {
       "patterns": [
-        "src"
+        "src/resources/content"
       ],
-      "extensions": "html,css,js",
+      "extensions": "html,scss,js",
       "quiet": false
     }
   },
