@@ -9,7 +9,8 @@ export class NodeElem {
         public label: string,
         public major: boolean = false,
         public connectivity = 1,
-        public normalizedConnectivity = 1
+        public normalizedConnectivity = 1,
+        public connexionsCount = 0,
     ) { }
 }
 
