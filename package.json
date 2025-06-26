@@ -6,25 +6,25 @@
   "scripts": {
     "start": "npm run gen &&  npm run assemble",
     "gen": "npx tsc && node --env-file .env dist/app.js",
-    "assemble":"sh build.sh",
+    "assemble": "sh build.sh",
     "watch": "npm-watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "watch":{
-"start": {
-        "patterns": [
-          "src"
-        ],
-        "extensions": "ts,html,css,js",
-        "quiet": false
-      },
-      "assemble": {
-        "patterns": [
-          "src"
-        ],
-        "extensions": "html,css,js",
-        "quiet": false
-      }
+  "watch": {
+    "start": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "ts,html,css,js",
+      "quiet": false
+    },
+    "assemble": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "html,css,js",
+      "quiet": false
+    }
   },
   "author": "",
   "license": "ISC",
@@ -41,6 +41,7 @@
     "@types/node": "^24.0.3",
     "cytoscape": "^3.32.0",
     "npm-watch": "^0.13.0",
+    "sass": "^1.89.2",
     "typescript": "^5.8.3"
   }
 }
