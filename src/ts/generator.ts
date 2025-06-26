@@ -5,6 +5,8 @@ export class Generator {
 
     public generate(nodes: NodeElem[]): NetworkData {
 
+        nodes = _.filter(nodes, node => node.connectivity > 0);
+
         this.normalizeConnectivity(nodes)
 
         var cdf = nodes.map(elem => elem.normalizedConnectivity).map((sum => value => sum += value)(0));

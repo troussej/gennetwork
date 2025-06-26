@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run gen &&  npm run assemble",
-    "build:generator": "npx tsc && node --env-file .env dist/app.js",
+    "build:generator": "npx tsc && node  dist/app.js && sh copy_data.sh",
     "build:web": "sh build.sh",
     "watch": "npm-watch",
     "watch:web": "npm-watch build:web",
