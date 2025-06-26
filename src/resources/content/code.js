@@ -13,6 +13,7 @@ var cy = cytoscape({
 
     layout: {
         name: 'cose',
+        nodeOverlap: 20,
         // rows: 3
     }
 
