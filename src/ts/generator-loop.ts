@@ -1,6 +1,7 @@
 import _ from "lodash";
 import { Edge, NetworkData, NodeElem } from "./types/network.js";
 import { Generator } from "./generator.js";
+import { OPTIONS } from "./options.js";
 
 export class GeneratorByLoop extends Generator {
 

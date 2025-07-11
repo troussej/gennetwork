@@ -1,5 +1,6 @@
 import _ from "lodash";
 import { Edge, NetworkData, NodeElem } from "./types/network.js";
+import { OPTIONS } from "./options.js";
 
 export abstract class Generator {
 
@@ -7,11 +8,20 @@ export abstract class Generator {
 
 
     public calculateCDF(nodes: NodeElem[]): number[] {
+        let cdf: number[];
         console.log('calculateCDF', nodes);
-        this.normalizeConnectivity(nodes)
-        const cdf = nodes.map(elem => elem.normalizedConnectivity).map((sum => value => sum += value)(0));
+        if (OPTIONS.useConnectivityAsProbability) {
+            this.normalizeConnectivity(nodes)
+            cdf = nodes.map(elem => elem.normalizedConnectivity).map((sum => value => sum += value)(0));
+        }
+        else {
+            const nbNodes = nodes.length;
+            cdf = nodes.map((elem, index) => index / nbNodes).map((sum => value => sum += value)(0));
+        }
         console.log('cdf', cdf);
         return cdf;
+
+
     }
 
     public normalizeConnectivity(nodes: NodeElem[]): NodeElem[] {

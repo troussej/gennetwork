@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "npm run gen &&  npm run assemble",
+    "start": "npm run build ",
+    "build": "npm run build:generator &&  npm run build:web",
     "build:generator": "npx tsc && node  dist/app.js && sh copy_data.sh",
     "build:web": "sh build.sh",
     "watch": "npm-watch",
