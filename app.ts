@@ -1,6 +1,6 @@
 
 import { CsvReader } from "./src/ts/csv-reader.js";
-import { Generator } from "./src/ts/generator.js";
+import { GeneratorByLoop as Generator } from "./src/ts/generator-loop.js";
 import { Mapper } from "./src/ts/mapper.js";
 import { NodeElem } from "./src/ts/types/network.js";
 import * as fs from 'node:fs/promises';
