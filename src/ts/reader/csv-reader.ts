@@ -3,16 +3,18 @@ import neatCsv, { Row } from 'neat-csv';
 
 
 import { from, map, Observable, switchMap } from 'rxjs';
-import { NodeElem } from './types/network.js';
+import { NodeElem } from '../types/network.js';
 import * as fs from 'node:fs/promises';
-export class CsvReader {
+import { Reader } from './reader.js';
+import { OPTIONS } from '../options.js';
+export class CsvReader implements Reader {
 
 
     public read(): Observable<NodeElem[]> {
 
-        const path = 'src/resources/data/nodes.csv';
+        const path = OPTIONS.source.path;
 
-        return from(fs.readFile(path,{encoding:'utf-8'})).pipe(
+        return from(fs.readFile(path, { encoding: 'utf-8' })).pipe(
             switchMap(this.readNodes.bind(this))
         );
     }

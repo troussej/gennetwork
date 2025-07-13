@@ -12,6 +12,7 @@ export class Mapper {
             elements.push({
                 data: {
                     id: node.id,
+                    text: node.label,
                     score: node.connectivity
                 },
 

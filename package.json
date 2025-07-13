@@ -8,6 +8,7 @@
     "build": "npm run build:generator &&  npm run build:web",
     "build:generator": "npx tsc && node  dist/app.js && sh copy_data.sh",
     "build:web": "sh build.sh",
+    "read:json": "npx tsc && node  dist/readFullJson.js && sh copy_data.sh",
     "watch": "npm-watch",
     "watch:web": "npm-watch build:web",
     "test": "echo \"Error: no test specified\" && exit 1"
